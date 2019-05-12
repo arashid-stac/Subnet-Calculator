@@ -4,7 +4,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 public class CalculatorInterface extends JFrame {
 
@@ -16,12 +15,13 @@ public class CalculatorInterface extends JFrame {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		
 		Calculations calcs = new Calculations();
 
 		JButton btnFindSubnetMask = new JButton("Find Subnet Mask");
 		btnFindSubnetMask.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				calcs.getSubnetMask();
+				calcs.getSubnetMask();				
 			}
 		});
 		btnFindSubnetMask.setBounds(41, 55, 157, 29);
@@ -39,11 +39,7 @@ public class CalculatorInterface extends JFrame {
 		JButton btnFindNumberOf = new JButton("Find number of hosts");
 		btnFindNumberOf.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String CIDRNumInput = JOptionPane.showInputDialog("Input CIDR number", "Netmask");
-				int CIDRNum = 32 - Integer.parseInt(CIDRNumInput);
-				int numberOfHosts = (int) ((Math.pow(2, CIDRNum)) - 2);
-
-				JOptionPane.showMessageDialog(null, "Here is your number of hosts: " + numberOfHosts);
+				calcs.getNumberOfHosts();
 			}
 		});
 		btnFindNumberOf.setBounds(15, 100, 183, 29);
